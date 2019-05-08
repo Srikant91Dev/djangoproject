@@ -1,2 +1,10 @@
-My First File
-hello world
+FROM python:3.7-alpine
+MAINTAINER srikant
+ENV PYTHONBUFFERED 1
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+
+RUN mkdir /app
+WORKDIR /app
+COPY ./app /app
+
